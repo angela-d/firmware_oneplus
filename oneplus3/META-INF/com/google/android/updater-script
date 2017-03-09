@@ -1,3 +1,4 @@
+getprop("ro.display.series") == "OnePlus 3" || abort("E3004: This package is for \"OnePlus 3\" devices; this is a \"" + getprop("ro.display.series") + "\".");
 ui_print("Flashing firmware");
 package_extract_file("firmware-update/cmnlib64.mbn", "/dev/block/bootdevice/by-name/cmnlib64");
 package_extract_file("firmware-update/cmnlib.mbn", "/dev/block/bootdevice/by-name/cmnlib");

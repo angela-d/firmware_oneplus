@@ -1,16 +1,21 @@
 #!/bin/bash
 
-# Remove old zips
-rm -rf *.zip
+# Create out directories
+mkdir -p out/oneplus_3
+mkdir -p out/oneplus_3t
+mkdir -p out/oneplus_5
 
 # Generate ZIP for OnePlus 3T
-cd oneplus3t && zip -r ../OnePlus3T_Open_Beta_11_firmware.zip *
+echo "Packaging OnePlus 3T firmware..."
+cd oneplus3t && zip -9 -r ../out/oneplus_3t/oneplus3t_open_beta_11_firmware.zip *
 cd ..
 
 # Generate ZIP for OnePlus 3
-cd oneplus3 && zip -r ../OnePlus3_Open_Beta_20_firmware.zip *
+echo "Packaging OnePlus 3 firmware..."
+cd oneplus3 && zip -9 -r ../out/oneplus_3/oneplus3_open_beta_20_firmware.zip *
 cd ..
 
 # Generate ZIP for OnePlus 5
-cd oneplus5 && zip -9 -r ../oneplus_5_oxygenos_4.5.6_firmware.zip *
+echo "Packaging OnePlus 5 firmware"
+cd oneplus5 && zip -9 -r ../out/oneplus_5/oneplus_5_oxygenos_4.5.6_firmware.zip *
 cd ..

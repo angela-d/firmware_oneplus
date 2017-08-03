@@ -12,5 +12,5 @@ cd oneplus3 && zip -r ../OnePlus3_Open_Beta_20_firmware.zip *
 cd ..
 
 # Generate ZIP for OnePlus 5
-cd oneplus5 && zip -9 -r ../oneplus_5_oxygenos_4.5.5_firmware.zip *
+cd oneplus5 && zip -9 -r ../oneplus_5_oxygenos_4.5.6_firmware.zip *
 cd ..

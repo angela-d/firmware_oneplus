@@ -12,7 +12,7 @@ cd ..
 
 # Generate ZIP for OnePlus 3
 echo "Packaging OnePlus 3 firmware..."
-cd oneplus3 && zip -9 -r ../out/oneplus_3/oneplus3_oxygenos_open_beta_20_firmware.zip *
+cd oneplus3 && zip -9 -r ../out/oneplus_3/oneplus3_oxygenos_open_beta_21_firmware.zip *
 cd ..
 
 # Generate ZIP for OnePlus 5

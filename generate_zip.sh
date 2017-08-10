@@ -7,7 +7,7 @@ mkdir -p out/oneplus_5
 
 # Generate ZIP for OnePlus 3T
 echo "Packaging OnePlus 3T firmware..."
-cd oneplus3t && zip -9 -r ../out/oneplus_3t/oneplus3t_oxygenos_open_beta_11_firmware.zip *
+cd oneplus3t && zip -9 -r ../out/oneplus_3t/oneplus3t_oxygenos_open_beta_12_firmware.zip *
 cd ..
 
 # Generate ZIP for OnePlus 3

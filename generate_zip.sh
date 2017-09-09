@@ -17,5 +17,5 @@ cd ..
 
 # Generate ZIP for OnePlus 5
 echo "Packaging OnePlus 5 firmware"
-cd oneplus5 && zip -9 -r ../out/oneplus_5/oneplus_5_oxygenos_4.5.8_firmware.zip *
+cd oneplus5 && zip -9 -r ../out/oneplus_5/oneplus_5_oxygenos_4.5.10_firmware.zip *
 cd ..

@@ -1,5 +1,5 @@
 #!/bin/bash
-# E.G. ./extract.sh <FILE> out/oneplus5 oneplus_5/oneplus_5_oxygenos_4.5.12_firmware.zip
+# E.G. ./extract.sh <FILE> oneplus5 out/oneplus_5/oneplus_5_oxygenos_4.5.12_firmware.zip
 
 # Variables
 FILE=$1

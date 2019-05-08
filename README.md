@@ -8,7 +8,7 @@ Extract the official firmware by yourself, without relying on third parties or p
 
 ## Compatibility
 - Any operating system with bash; all Linux distros and MacOS.  Not tested on Windows or WSL.
-- For Oneplus 3, 4 and 5 devices (should also work for others, but you'd need to create the directory hierarchy + customize the **update-binary** and **updater-script** in `oneplusx/META-INF/com/google/android`)
+- For Oneplus 3, 3T and 5 devices (should also work for others, but you'd need to create the directory hierarchy + customize the **update-binary** and **updater-script** in `oneplusx/META-INF/com/google/android`)
 
 ## How to Use
 1. Clone this repository

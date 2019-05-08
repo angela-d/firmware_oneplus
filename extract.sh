@@ -1,24 +1,64 @@
 #!/bin/bash
-# E.G. ./extract.sh <FILE> oneplus5 out/oneplus_5/oneplus_5_oxygenos_4.5.12_firmware.zip
 
 # Variables
 FILE=$1
 DEVICE=$2
 OUT=$3
 
-# Extract ROM
-rm -rf tmp
+# pre-check
+if [ -z "$1" ];
+then
+  echo -e "ERROR: You need to specify a source file.  Please see https://github.com/angela-d/firmware-oneplus\nExiting.."
+  exit 1
+fi
+
+if [ -z "$2" ];
+then
+  echo -e "ERROR: You need to specify the device model.  Please see https://github.com/angela-d/firmware-oneplus\nExiting.."
+  exit 1
+fi
+
+if [ -z "$3" ];
+then
+  echo -e "ERROR: You need to specify the destination filename.  Please see https://github.com/angela-d/firmware-oneplus\nExiting.."
+  exit 1
+fi
+
+function cleanup() {
+  if [ -d "$1" ];
+  then
+    echo "Cleaning up $1 directory..."
+    rm -rf "$1"
+  fi
+}
+
+# cleanup from previous uses
+echo "Preparing cleanup from previous uses of Oneplus firmware extraction..."
+cleanup "tmp"
+
+# setup
+echo "Setting up..."
 mkdir tmp
-unzip $FILE -d tmp
+
+echo -e "\n\tSTARTING EXTRACTION - Do not interrupt!  It may take a few moments to complete.\n\tThe terminal will prompt when complete.\n"
+
+# Extract ROM
+echo "Extracting from the source image..."
+unzip "$FILE" -d tmp
 
 # Remove old firmware
-rm -rf $DEVICE/firmware-update/*
+cleanup "$DEVICE"/firmware-update/*
 
 # Copy new firmware
-cp tmp/firmware-update/* $DEVICE/firmware-update
-cp tmp/RADIO/* $DEVICE/firmware-update
-rm -rf tmp
+echo "Preparing new firmware..."
+cp tmp/firmware-update/* "$DEVICE"/firmware-update
+echo "Preparing radio..."
+cp tmp/RADIO/* "$DEVICE"/firmware-update
+cleanup "tmp"
 
 # Package new firmware
-cd $DEVICE
-zip -9 -r ../$OUT *
+cd "$DEVICE" || echo "ERROR: $DEVICE directory not found"
+echo "Finalizing flashable zip..."
+zip -9 -r ../"$OUT" -- *
+
+echo -e "DONE!\nFind your flashable zip at: $OUT"

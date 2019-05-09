@@ -7,21 +7,24 @@ You can sideload the extracted firmware without needing to flash OxygenOS over y
 Extract the official firmware by yourself, without relying on third parties or potentially untrustworthy hosting sites.
 
 ## Compatibility
+To run the extract script:
 - Any operating system with bash; all Linux distros and MacOS.  Not tested on Windows or WSL.
-- For Oneplus 3, 3T, 5 and 5T devices (should also work for others, but you'd need to create the directory hierarchy + pull the **update-binary** and **updater-script** from the OxygenOS zip for `oneplusx/META-INF/com/google/android`)
+
+Device:
+- For Oneplus 3, 3T, 5 and 5T devices
+
+*(should also work for others, but you'd need to create the directory hierarchy + pull the **update-binary** and **updater-script** from the OxygenOS zip for `oneplusx/META-INF/com/google/android`)*
 
 ## How to Use
 1. Clone this repository
 2. Obtain the *latest* copy of OxygenOS from [Oneplus](https://www.oneplus.com/support/softwareupgrade) as a **.zip**
 3. In your terminal, navigate to the directory where you cloned this repo: `cd firmware_oneplus && ls -l` - if you see the directory contents, you're ready to go
 
-The command-line parameters are in 3 parts:
+The command-line parameters are in 3 parts *[ [Explain this Command](commands-explained.md) ]*:
 - Script being executed (extract.sh)
 - OxygenOS image (what you downloaded from Oneplus)
-- Phone model*
+- Phone model
 
-
-`*` When I wrote the readme I decided to leave these in the script, as modders use them.  If you're flashing your individual device, you'll never need to worry about anything other than your device model, which is either: **oneplus3**, **oneplus4** or **oneplus5**
 
 Example query to be pasted into your terminal (you'll need to adjust the parameters to suit):
 ```bash
@@ -30,9 +33,9 @@ Example query to be pasted into your terminal (you'll need to adjust the paramet
 oneplus5 \
 out/oneplus_5/firmware-update.zip
 ```
-(Hit enter to execute the command if you pasted it into a notepad and then into your terminal, to edit your parameters.)
+(**Hit enter** to execute the command if you pasted it into a notepad to edit your parameters and then into your terminal.)
 
-[ [Explain this Command](commands-explained.md) ] - Breakdown of paramters in laymen's terms.
+
 ***
 
 ## Updating Your Device

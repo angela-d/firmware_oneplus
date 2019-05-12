@@ -13,33 +13,44 @@ To run the extract script:
 Device:
 - For Oneplus 3, 3T, 5 and 5T devices
 
-*(should also work for others, but you'd need to create the directory hierarchy + pull the **update-binary** and **updater-script** from the OxygenOS zip for `oneplusx/META-INF/com/google/android`)*
+*(should also work for others, providing the images' hierarchy is similar)*
 
 ## How to Use
 1. Clone this repository
 2. Obtain the *latest* copy of OxygenOS from [Oneplus](https://www.oneplus.com/support/softwareupgrade) as a **.zip**
 3. In your terminal, navigate to the directory where you cloned this repo: `cd firmware_oneplus && ls -l` - if you see the directory contents, you're ready to go
 
-The command-line parameters are in 3 parts *[ [Explain this Command](commands-explained.md) ]*:
-- Script being executed (extract.sh)
-- OxygenOS image (what you downloaded from Oneplus)
-- Phone model
+As of v2.0, the command-line options have been greatly simplified, using interactive prompts.
 
+To trigger the tool, simply run:
 
-Example query to be pasted into your terminal (you'll need to adjust the parameters to suit):
 ```bash
-./extract.sh \
-/home/angela/Downloads/OnePlus5Oxygen_23_OTA_048_all_123456.zip \
-oneplus5 \
-out/oneplus_5/firmware-update.zip
+./extract.sh
 ```
-(**Hit enter** to execute the command if you pasted it into a notepad to edit your parameters and then into your terminal.)
+or
+```bash
+/path/to/extract
+```
+That's it!  The screen will prompt and guide you through the process.
 
+Successful image generated:
+
+![Flashable Firmware Generated](./img/flashable.png)
+
+
+Image mis-match (built-in error checking):
+
+![Image Mis-Match](./img/invalid-img.png)
+
+
+Pre-packaged zip ready to go (the screenshot is focused on the *extracted* image, showing that all of the OxygenOS stuff is gone and only the desired update remains):
+
+![Generated Image](./img/generated-files.png)
 
 ***
 
 ## Updating Your Device
-Once **extract.sh** completes (it may take a moment - do not interrupt it), locate your flashable zip in the destination you specified (the terminal will tell you the path!)
+Once **extract** completes, locate your flashable zip (the terminal will tell you the path!)
 
 - Connect your device to your computer via USB and run `adb devices` from your terminal to initiate a connection
 - In TWRP Recovery:
@@ -47,10 +58,9 @@ Once **extract.sh** completes (it may take a moment - do not interrupt it), loca
 
 1. Advanced
 2. Sideload
-
-- TWRP will prompt sideloading has started; from your terminal, run:
+3. TWRP will prompt sideloading has started; from your terminal, run:
 ```bash
-adb sideload out/oneplus_5/oneplus_5_oxygenos_9.0.5_firmware.zip
+adb sideload firmware-update-oneplus5T.zip
 ```
 
 That's it.

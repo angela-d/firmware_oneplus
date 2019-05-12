@@ -1,0 +1,93 @@
+#!/bin/bash
+
+# original codebase forked from https://github.com/Koenkk
+# integrity checking and improvements by Angela https://github.com/angela-d/firmware_oneplus
+
+function cleanup() {
+  if [ -d "$1" ];
+  then
+    echo "Cleaning up $1 directory..."
+    rm -rf "$1"
+  fi
+}
+
+function bold() {
+  echo -e "\e[1m$1\e[0m"
+}
+
+function green() {
+  echo -e "\e[32m$1\e[0m"
+}
+
+function red() {
+  echo -e "\e[0;31m$1\e[0m"
+}
+
+function yellow() {
+  echo -e "$1 \e[93m$2\e[0m"
+}
+
+function brown() {
+  echo -e "\e[0;33m$1\e[0m"
+}
+
+function purple() {
+  echo -e "\e[0;35m$1\e[0m"
+}
+
+green "\n\n\t\t ONEPLUS FIRMWARE EXTRACTOR\n\tAuthor: Angela https://github.com/angela-d/firmware_oneplus\n\tOriginally forked from Koenkk https://github.com/Koenkk\n\n"
+bold "Please specify which device you'll be generating a flashable firmware zip for:"
+yellow "Oneplus 3:" "3"
+yellow "Oneplus 3T:" "3T"
+yellow "Oneplus 5:" "5"
+yellow "Oneplus 5T:" "5T\n"
+
+bold "Type only the version number (without the colon) - case sensitive: "
+read -r VERSION
+
+if [[ "$VERSION" == *"6"* ]];
+then
+  red "Oneplus 6/6T images aren't compatible with this tool."
+  exit 0
+fi
+
+bold "\nSpecify the full local path to your OxygenOS .zip obtained from the Oneplus site.\nie. $HOME/Downloads/Oneplus.zip:"
+read -r OXYGEN_PATH
+
+brown "\nValidating firmware versions, hold on a sec...\n"
+
+# make sure this is the right filetype
+if [[ ! "$OXYGEN_PATH" =~ \.zip$ ]];
+then
+  red "Invalid filetype; the image must be in .zip format."
+  exit 1
+fi
+
+unzip -q "$OXYGEN_PATH" META-INF/com/google/android/* -d "tmp/"
+
+# compare the version with the update script
+# shellcheck disable=SC2126
+if [ "$(grep "\"OnePlus $VERSION\"" -R tmp/META-INF/com/google/android/ | wc -l)" == '0' ];
+then
+  red "The supplied .zip doesn't appear to be for the Oneplus $VERSION\nPlease double-check the image you downloaded and try again."
+  cleanup "tmp"
+  exit 1
+fi
+
+green "\nVersion match...\n\t"
+red "STARTING EXTRACTION - Do not interrupt!\n\tThe terminal will prompt when complete.\n"
+
+# Extract ROM
+echo "Extracting from the source image..."
+unzip -q "$OXYGEN_PATH" firmware-update/* -d "tmp/"
+unzip -jq "$OXYGEN_PATH" RADIO/* -d "tmp/firmware-update/"
+
+echo "Finalizing flashable zip..."
+OUTFILE=firmware-update-oneplus$VERSION
+
+cd tmp || echo "Something went wrong..."
+zip -9 -rq ../"$OUTFILE" -- ./*
+cd ..
+cleanup "tmp"
+echo -e "\n\tDONE!\n\n"
+purple "Find your flashable zip at: $PWD/$OUTFILE.zip"

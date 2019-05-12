@@ -25,7 +25,7 @@ As of v2.0, the command-line options have been greatly simplified, using interac
 To trigger the tool, simply run:
 
 ```bash
-./extract.sh
+./extract
 ```
 or
 ```bash

@@ -82,6 +82,13 @@ echo "Extracting from the source image..."
 unzip -q "$OXYGEN_PATH" firmware-update/* -d "tmp/"
 unzip -jq "$OXYGEN_PATH" RADIO/* -d "tmp/firmware-update/"
 
+echo "Copying update script from this repo, so only modem + firmware is parsed during flash..."
+# force lowercase in the event 3T is typed; destination won't match
+LOWERCASE="${VERSION,,}"
+
+# bypass cp -i alias to overwrite destination update script supplied by oneplus zip
+yes | cp update/op"$LOWERCASE"/updater-script tmp/META-INF/com/google/android/updater-script
+
 echo "Finalizing flashable zip..."
 OUTFILE=firmware-update-oneplus$VERSION
 

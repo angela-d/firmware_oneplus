@@ -53,7 +53,7 @@ Pre-packaged zip ready to go (the screenshot is focused on the *extracted* image
 Once **extract** completes, locate your flashable zip (the terminal will tell you the path!)
 
 - Connect your device to your computer via USB and run `adb devices` from your terminal to initiate a connection
-- In TWRP Recovery:
+- In TWRP Recovery (if you aren't in recovery yet: [instructions to get there](boot-into-recovery.md)):
 
 
 1. Advanced

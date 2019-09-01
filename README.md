@@ -68,7 +68,7 @@ That's it.
 Note: If you tried to update before flashing the firmware, you may get an "update failed" notification once Lineage boots back up.  Simply go to Settings > Update > Install again and let it do it's thing.  It should then finish the upgrade with the latest Oneplus firmware.
 
 ## Current Firmware
-As of July 29, 2019 the latest firmware is **9.0.7**
+As of August 8, 2019 the latest firmware is **9.0.8**
 
 ### Caveats
 No responsibility to anyone but yourself if you brick your device!

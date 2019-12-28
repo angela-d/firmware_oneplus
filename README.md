@@ -17,6 +17,10 @@ Device:
 
 ## How to Use
 1. Clone this repository
+```bash
+git clone --depth=1 https://github.com/angela-d/firmware_oneplus.git
+```
+*(Use --depth=1 to avoid pulling in legacy objects from the original repo)*
 2. Obtain the *latest* copy of OxygenOS from [Oneplus](https://www.oneplus.com/support/softwareupgrade) as a **.zip**
 3. In your terminal, navigate to the directory where you cloned this repo: `cd firmware_oneplus && ls -l` - if you see the directory contents, you're ready to go
 

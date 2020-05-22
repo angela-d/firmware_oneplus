@@ -13,7 +13,10 @@ To run the extract script:
 Device:
 - For Oneplus 3, 3T, 5 and 5T devices
 
-*(should also work for others, providing the images' hierarchy is similar)*
+Lineage/MicroG Lineage versions:
+- v16 / Android 9 Pie
+
+*Later versions of Lineage may work, but have not been tested.  Use at your own risk for v17!*
 
 ## How to Use
 1. Clone this repository
@@ -73,7 +76,25 @@ That's it.
 Note: If you tried to update before flashing the firmware, you may get an "update failed" notification once Lineage boots back up.  Simply go to Settings > Update > Install again and let it do it's thing.  It should then finish the upgrade with the latest Oneplus firmware.
 
 ## Current Firmware
-As of March 25, 2020 the latest firmware is **9.0.11**
+See note about OTA updates below.
+- As of March 25, 2020 the [latest](https://www.oneplus.com/support/softwareupgrade) firmware from Oneplus is **9.0.11**
+- As of Oct 29, 2019 the latest firmware for [Oneplus 5 cheeseburger](https://review.lineageos.org/c/LineageOS/android_device_oneplus_cheeseburger/+/262655/1/board-info.txt) is **9.0.9**
+- As of Oct 29, 2019 the latest firmware for [Oneplus 5T dumpling](https://review.lineageos.org/c/LineageOS/android_device_oneplus_dumpling/+/262654/) is **9.0.9**
+- As of Jun 15, 2019 the latest firmware for [Oneplus 3/3T oneplus3](https://github.com/LineageOS/android_device_oneplus_oneplus3/commit/97803deb60f30939ba2c3fa8637a7812f89c5b1b) is **9.0.2**
+
+Note that 3/3T has Lineage v16 & v17 available; v17 has **not** been tested with this script.
+
+## OTA Updates
+Over the air (OTA) updates requiring the latest firmware aren't always forced by Lineage / MicroG Lineage, even if Oneplus has published a later version than what you're running.
+
+In this event:
+1. Check [download.lineageos.org](https://download.lineageos.org/) for your specific device -> Recent changes
+2. Scroll until you see a "firmware" change referenced with the latest version number listed
+
+If nothing (later than your running version) is there, go about your day (or, force a firmware update if you really want to).
+
+Forcing a firmware update appears to be successful, but the "Vendor security patch" displayed in **Settings > About phone > Android version** still won't update.
+
 
 ### Caveats
 No responsibility to anyone but yourself if you brick your device!

@@ -79,7 +79,8 @@ Note: If you tried to update before flashing the firmware, you may get an "updat
 See note about OTA updates below.
 - As of March 25, 2020 the [latest](https://www.oneplus.com/support/softwareupgrade) firmware from Oneplus is **9.0.11**
 - As of Oct 29, 2019 the latest firmware for [Oneplus 5 cheeseburger](https://review.lineageos.org/c/LineageOS/android_device_oneplus_cheeseburger/+/262655/1/board-info.txt) is **9.0.9**
-- As of Oct 29, 2019 the latest firmware for [Oneplus 5T dumpling](https://review.lineageos.org/c/LineageOS/android_device_oneplus_dumpling/+/262654/) is **9.0.9**
+- As of Oct 29, 2019 the latest firmware for [Oneplus 5T dumpling](https://review.lineageos.org/c/LineageOS/android_device_oneplus_dumpling/+/262654/) on v16 is **9.0.9**
+- As of Oct 31, 2020 the latest firmware for [Oneplus 5T dumpling](https://review.lineageos.org/c/LineageOS/android_device_oneplus_dumpling/+/290219) on v17 is **10.0.0 hotfix1**
 - As of Jun 15, 2019 the latest firmware for [Oneplus 3/3T oneplus3](https://github.com/LineageOS/android_device_oneplus_oneplus3/commit/97803deb60f30939ba2c3fa8637a7812f89c5b1b) is **9.0.2**
 
 Note that 3/3T has Lineage v16 & v17 available; v17 has **not** been tested with this script.

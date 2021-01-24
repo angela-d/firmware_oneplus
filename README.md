@@ -82,7 +82,7 @@ See note about OTA updates below.
 Obtain the original Oxygen image from [Oneplus](https://www.oneplus.com/support/softwareupgrade) for your device.
 
 - As of Oct 31, 2020 the latest firmware for [Oneplus 5 cheeseburger](https://review.lineageos.org/c/LineageOS/android_device_oneplus_cheeseburger/+/287278/) is **10.0.0 hotfix 1**
-- As of Oct 31, 2020 the latest firmware for [Oneplus 5T dumpling](https://review.lineageos.org/c/LineageOS/android_device_oneplus_dumpling/+/290219) is **10.0.0 hotfix1**
+- As of Nov 14, 2020 the latest firmware for [Oneplus 5T dumpling](https://review.lineageos.org/c/LineageOS/android_device_oneplus_dumpling/+/292284) is **10.0.1**
 - As of Jun 15, 2019 the latest firmware for [Oneplus 3/3T oneplus3](https://github.com/LineageOS/android_device_oneplus_oneplus3/commit/97803deb60f30939ba2c3fa8637a7812f89c5b1b) is **9.0.2**
 
 Note that 3/3T has Lineage v16 & v17 available; v17 has **not** been tested with this script.
